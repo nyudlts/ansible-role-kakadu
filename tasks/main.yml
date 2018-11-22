@@ -1,0 +1,20 @@
+---
+
+- name: install dependencies with yum
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - unzip
+
+- name: Download Kakadu files
+  unarchive:
+    remote_src: yes
+    src: http://kakadusoftware.com/wp-content/uploads/2014/06/KDU7A2_Demo_Apps_for_Centos7-x86-64_170827.zip
+    dest: /tmp
+
+- name: copy Kakadu binary
+  command: cp /tmp/KDU7A2_Demo_Apps_for_Centos7-x86-64_170827/kdu_expand /usr/bin
+
+- name: copy static library
+  command: cp /tmp/KDU7A2_Demo_Apps_for_Centos7-x86-64_170827/libkdu_v7AR.so /usr/lib64
