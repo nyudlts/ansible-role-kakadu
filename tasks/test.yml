@@ -1,0 +1,13 @@
+---
+
+- name: Create images directory
+  command: mkdir -p /tmp/images
+
+- name: Download test image
+  unarchive:
+    remote_src: yes
+    src: http://www.terracolor.net/download/tc_ng_baghdad_iq_jp2.zip
+    dest: /tmp/images
+
+- name: Rename image
+  command: mv /tmp/images/TC_NG_Baghdad_IQ_Geo.jp2 /tmp/images/image.jp2

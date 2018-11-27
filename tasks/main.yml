@@ -18,3 +18,7 @@
 
 - name: copy static library
   command: cp /tmp/KDU7A2_Demo_Apps_for_Centos7-x86-64_170827/libkdu_v7AR.so /usr/lib64
+
+- include: test.yml
+  tags:
+    - test
