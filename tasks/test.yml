@@ -1,7 +1,10 @@
 ---
 
 - name: Create images directory
-  command: mkdir -p /tmp/images
+  file:
+    path: /tmp/images
+    state: directory
+    mode: 0755
 
 - name: Download test image
   unarchive:
