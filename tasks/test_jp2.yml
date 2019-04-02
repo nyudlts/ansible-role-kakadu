@@ -1,0 +1,13 @@
+---
+
+- name: Create images directory
+  file:
+    path: /tmp/images
+    state: directory
+    mode: 0755
+
+- name: Download test image
+  get_url:
+    url: https://echoone.com/pictures/filejuicer/gold.jp2
+    dest: /tmp/images/image.jp2
+    mode: 0755
